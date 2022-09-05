@@ -1,0 +1,77 @@
+DBMS
+
+Data: raw info
+
+Database: collection of data, more organised, structured
+
+DBMS:
+	- collection of inter-related data and set of programs to access those data
+	access to means to retrieve info or to perform different operations on data
+
+Goals of DBMS:
+	-providing a way to store and retrieve databse info that is both convenient and efficient
+	-ensure the safety of the info
+
+Applications of Database:
+	-Airlines
+	-Travels
+	-Hotels
+	-Educational Institutions
+	-Finance
+	-Banking
+
+Why DBMS?
+	Disadvantage of file system:
+		-data redundancy(duplicacy) and inconsistency(having two different values)
+		-difficulty in accessing data
+		-data isolation
+		-integrity problems (applying constraints)
+		-atomicty problems (rollback to previous state)
+		-concurrent access anomalies (mutual exclusion)
+		-security problems
+		
+Instance:
+	the collection of info stored in the database at a particular moment
+
+Schema:
+	overall design of database
+
+Database Languages:
+	-Data Defination Language (DDL)
+		schema related changes
+	-Data Manipulation Language (DML)
+		values related changes
+		two types
+		-Procedural:
+			requires a user to specify what data are needed and how to get those data
+		-Non Procedural:
+			requires a user to specify what data are needed without spicifying how to get those data (SQL)
+
+Database Users and Admin:
+	-Naive Users #UnSophisticated
+	-Application Programmer #UnSophisticated
+	-Sophisticated Users
+	-Specialised Users
+	-Database Adminstrators
+
+View of Data:
+	-Physical Level
+		how data is stored in disk
+	-Logical Level
+		design of table stored in disk but do not know how
+	-View Level
+		part of database visible to user
+
+	Physical -> Logical -> View
+	
+Database System Architecture:
+	-Storage Manager
+	-Query Processor Components
+	
+	command -> query processor -> storage manager
+	
+2 Tier:
+	[User -> Application] -> (network) -> Database system
+
+3 Tier:
+	[User -> Application client] -> (network) -> [Application server -> Database system]
