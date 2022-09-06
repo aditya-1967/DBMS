@@ -1,0 +1,66 @@
+ER Model:
+	consists of collection of basic objects, called entities and of relationships among these objects
+
+Entity:
+	object in real world that is distinguishable from another objects
+
+Entity Set:
+	collection of similar entities
+
+Attribute:
+	entity is described using a set of attributes
+	(properties)
+	
+Domain:
+	unique set of values permitted for an attribute
+
+Relationship:
+	an association among two or more entities
+
+Relationship Set:
+	set of similar relationships
+
+Key:
+	an attribute or set of attributes whose values can be uniquely identfy an entity in a set
+
+ER Diagram:
+
+	graphical representation of ER Model
+	
+	1. Entity set -> rectangular box [entity set name]
+	2. Relationship Set -> diamond box <>
+	3. Attributes -> oval box/elipses ()
+
+	Types of Relationships:
+		1. Unary
+			relationship b/w entities of same entity set
+		2. Binary
+			relationship b/w entities of two entity set
+		3. Ternary
+			relationship b/w entities of three entity set
+	
+	Descriptive Attribute:
+		Attribute of relationship
+	
+	Mapping Cardinality:
+		maximum number of relationship instance in which an entity can participate
+		
+		1. One to One:
+			[1 entity] <--> <Relationship> <--> [1 entity]
+		2. One to Many
+			[1 entity] --> <Relationship> --> [many entities]
+		3. Many to One
+			[1 entity] <-- <Relationship> <-- [many entities]
+		4. Many to Many
+			[many entities] <--> <Relationship> <--> [many entities]
+			
+	Participation Constraints:
+		specifies the presense of an entity when it is related to another entity in a relationship type
+		
+		1. Total (double line)
+		2. Partial (single line)
+	
+	Weak vs Strong Entities:
+		Weak:
+			entity that cannot be uniquely identfied by its attributes alone
+			representation - double rectangular [[]]
