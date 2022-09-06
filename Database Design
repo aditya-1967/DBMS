@@ -1,0 +1,31 @@
+Data Models:
+	a collections of conceptual tools for describing data, data relationships, data semantics and consistensy contraints
+	
+	-Entity Relation Model (ER Model)
+	-Relational Model
+
+ER Model:
+	consists of collection of basic objects, called entities and of relationships among these objects
+
+Relational Model:
+	collection of tables to represent both data and the relationships among those data
+
+Other Data Models:
+	-Object Oriented Data Model
+	-Network Data Model
+	-Hierachial Data Model
+
+Database Design:
+	1. Requirement Analysis
+	2. Conceptual Database Design (on paper designing of database conceptually organised)
+		- ER Modelling
+	3/5. Schema Refinement
+	4. Logical Database Design (using tools)
+		- Relation Modelling
+	6. Physical Database Design (how database will be stored on disk)
+		-Decide the data structure to data base
+		-indexing
+	7. Security Design
+
+Standard Database Design:
+	- ER Diagram -> Refinement -> Relational Database Tables
