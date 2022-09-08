@@ -1,0 +1,59 @@
+Extended ER Features:
+	
+	Specialization:
+		more fine tuning
+		process of designating subgroupings within an entity
+		represantaion : reversed triangle
+		
+		Two Types:
+			-Disjoint (mutually exclusive entities)
+			-Overlapping (mutually inclusive entities)
+			
+	Generalizations:
+		commanality can be expressed by generalisation
+		it is a containament relationship that exists between higher level entity set and one or more lower level entity sets
+		represantaion : triangle
+	
+	Higher and Lower Level Entity set:
+	             [Person]    higer level entity
+				    |     
+					|
+				_________
+				\  ISA  /
+				 \	   /      specialisation
+				   \  /
+				     |
+					 |
+					 []     lower level entity
+	
+	Total Generalizations or Specialization:
+		each higer level entity must belong to lower level entity set
+	
+	Partial Generalizations or Specialization:
+		some higer level entity may not belong to any lower level entity set
+	
+	Attribute Inheritance:
+		attributes of higer level entity are inherited by lower level entity
+	
+	Aggregation:
+		relationship set participating in relationship then aggregation is used
+		relationship with other relationship
+	
+
+Types of Attributes:
+	1. Single valued vs Multivalued:
+		single valued has unique value of an attribute for each entity
+		multi valued has more than one value of an attribute for an entity (double elipse (()) )
+	
+	2. Simple vs Composite Attributes:
+		simple cannot be broken furthur (atomic)
+		composite can be broken furthur 
+	
+	4. Given vs Derived Attributes:
+		derived attributes can be derived from given attributes
+		ex. age can be derived from DOB
+		dotted elipse
+	
+	5. Prime(key) vs Non-prime Attributes(non-key):
+		if attribute is part of primary key then it is called prime else non-prime
+		prime attribute is (underlined)
