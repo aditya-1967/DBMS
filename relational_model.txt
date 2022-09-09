@@ -1,0 +1,53 @@
+Relational Model:
+	uses a collection of tables to represent both data and the relationship among those data
+	
+Attribute (field):
+	attributes are used to describe relations
+	or
+	columns of relations (just columnn name not values)
+
+Tuple or Record:
+	a row in relation
+
+Instance:
+	snapshot of data in the database at a given instant in time
+
+Database Schema:
+	logical design of database
+	-Relation_name(attribute1, attribute2,...)
+	
+Domain:
+	a unique set of values permitted for an attribute
+
+Domain Constraint:
+	speicifies an important condition that we want each instance of relation to satisfy
+
+Degree or Arity:
+	number of attributes in a relation
+
+Cardinality:
+	number of tuples in a relation
+
+Relational Database:
+	collection of relations
+	NULL: representation of no value
+
+Keys:
+	an attribute or a set of attributes whose values can uniquely identify a tuple in a relation
+	
+	Types of Keys:
+		1. Super Key:
+			all possible keys of a relation
+			super set of all keys
+		2. Candidate Key:
+			minimal super key
+			a key whose proper subset is not a key
+		3. Primary Key:
+			chosen candidate key for implementation
+		4. Alternate Key:
+			all candidate keys apart from primary key
+		5. Foreign Key:
+			# Referential Integrity:
+				we wish to ensure that a value that appears in one relation for a given set of attributes also appears for a certain set of attributes in another relation
+			it follows referential integrity constraint
+			can be null
