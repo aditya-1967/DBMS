@@ -1,0 +1,63 @@
+Functional Dependency:
+	Consider a relation R with 2 attributes A and B in R
+	B is functionally dependent on A (A -> B), if each value of A is associted with
+	exactly one value in B in relation R
+	
+	functional dependency will hold if in A -> B, A is a key
+	
+	A functional dependency A -> B always hold if A is key in the relation
+	where A, B are attributes or set of attributes in relation R
+	
+	# play a key role in differentiating good DB design from bad DB design
+	# type of constraint that is a generalisation of the notion of a key
+	# X -> Y, where X is a set of attributes that can determine value of Y
+	
+Closure of an Attribute (A+):
+	There is a relation R(A, B, C, D)
+	FD = {
+			A -> B
+			A -> D
+			B -> C
+		}
+	then closure of A (A+) = {A, B, D, C}
+	then closure of B (B+) = {B, C}
+	then closure of C (C+) = {C}
+	then closure of D (D+) = {D}
+	
+	# Closure of attribute A will have all the attribute that can be derived from A
+
+Trivial FD:
+	if FD is satisfied by all relations
+	A -> A
+
+Armstrong's Axioms:
+	1. Refelixivity Rule:
+		A FD A -> B holds, if B is subset of A,
+		where A and B are attribute or set of attributes in a relation R
+		
+	2. Augementaion Rule:
+		A FD A -> B holds, then CA -> CB also holds, where
+		A, B and C are attribute or set of attributes in a relation R
+	
+	3. Transitivity Rule:
+		if A -> B holds and B -> C holds then A -> C holds,
+		where A, B and C are attribute or set of attributes in a relation R
+	
+Additional Rules:
+	1. Union Rule:
+		if A -> B and A -> C holds, then A -> BC holds
+	
+	2. Decomposition Rule:
+		if A -> BC holds then, A -> B and A -> C holds
+		but if AB -> C, then A -> C does not hold
+	
+	3. Pseudo Transitivity Rule:
+		if A -> B and CB -> D holds, then AC -> D
+
+Closure of a Set of Functional Dependencies:
+	with given set of FDs, find all possible FDs from relations
+	
+	ex. R(A, B, C, D)
+	FD = {A -> B, B -> C, AB -> D}
+	
+	F+ = {A -> C, A -> D}
