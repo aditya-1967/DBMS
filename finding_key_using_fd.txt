@@ -1,0 +1,7 @@
+Finding Keys Using FD:
+	try to find an attribute or set of attributes, which can derive all the
+	attributes,
+	and that particular attribute will be the key
+	
+	# find closure of all attribute in the given FD, if there are attributes, 
+	or set of attributes that can derive all other attributes, then that will be the key
