@@ -1,0 +1,52 @@
+Cartesian Product:
+	all combinations
+	ex:
+	A = [a, b, c]
+	B = [d, e, f]
+	A x B = [ad, ae, af, bd, be, bf, cd, ce, cf]
+
+Natural Join:
+	matching combinations
+	ex:
+	R1 = [A, B]
+	    [1, B1]
+		[2, B2]
+		[3, B2]
+	
+	R2 = [B, C]
+	     [B1, C1]
+		 [B1, C2]
+		 [B2, C2]
+	
+	natural join R1 |X| R2
+	[A, B, C]
+	[1, B1, C1]
+	[1, B1, C2]
+	[2, B2, C2]
+	[3, B2, C2]
+
+Lossy vs Lossless Decomposition:
+	Lossy:
+		The decomposition of relation R into R1, R2,... Rn is lossy when the natural join of R1, R2, .... Rn does not produce the same relation R
+	
+	Assuming decomposition of relation R into R1, R2,... Rn:
+		R = R1 |X| R2 |X| ... |X| Rn -> Lossless
+		
+		R c R1 |X| R2 |X| ... |X| Rn -> Lossy
+	
+	Lossless:
+		The decomposition of relation R into R1, R2,... Rn is lossless when the natural join of R1, R2, .... Rn  produce the same relation R
+		
+	# upto 3NF all decomposition are lossless
+	# BCNF may give lossy decomposition
+	
+	# if BCNF gives lossy decomposition, then decomposition will not be applied
+
+Dependency Preserving Decomposition:
+	A decomposition D = {R1, R2, .. Rn} of R is dependency preserving with respect to a set F of functional dependencies if
+	(F1 U F2 U ... Fn) = F+
+	
+	# upto 3NF all decompositions are dependency preserving
+	# BCNF may give dependencies preservation
+	
+	# any relation with 2 attributes is always into BCNF
