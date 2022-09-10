@@ -1,0 +1,90 @@
+Normalisation:
+	process of minimizing redundancy (duplicacy) from a relation or set of relations
+	redundancy in relation may cause insertion, deletion and updation anomalies
+	
+	-Delete Anomaly:
+		if we are deleting some kind of detail, then some other will also be deleted which cannot be retrieved again
+		# cause:
+			keeping those attributes together which should not be kept together
+	
+	-Insertion Anomaly:
+		if we insert a new detail, then there will be anomaly if the primary key of that detail is not available
+		
+	-Update Anomaly:
+		if updation is not complete, due to redundancy
+	
+	Normalisation is a process of grouping attributes into  well structured relations, that contain minimum redundancy
+	-It focuses on characteristics of specific entites
+	-One relation should have one theme
+	
+Process of Normalisation:
+	
+	unnormalised relation
+			  | (remove repeating groups)/(multivalued attributes)
+	          |
+	         1NF
+			  | (remove partial dependencies)
+			  |
+			 2NF
+			  | (remove transitive dependencies)
+			  |
+			 3NF
+			  | (remove overlapping candiate key)
+			  |
+			 BCNF
+			  | (remove multivalued dependencies)
+			  |
+			 4NF
+			  | (remove non implied join dependencies)
+			  |
+			 5NF
+
+1NF:
+	a relation R is said to be 1NF if there is no multivalued attribute in R
+	-to remove multivalued attribute:
+		-soln 1: multiple rows (no primary key)
+		-soln 2: multiple columns (space wastage)
+		-soln 3: decompose multivalued attribute into new relation with primary key of original relation
+
+2NF:
+	a relation R is said to be in 2NF it is already in 1NF and there is no any non-prime attribute in R which is partially dependent on prime attribute of R
+	
+	Partial Dependency:
+		Assume a relation R(A, B, C, D, E)
+		C. key = CD
+		prime attribute - C, D
+		non Prime attribute - A, B, E
+		
+		CD can together derive A, B, C, D, E, but if
+		C derives A, B, E or
+		D derives A, B, E
+		then partial dependency exist
+	
+		i.e. if prime attribute alone derives a non prime attributes
+		
+		parital dependencies will not exist if candidate key is atmoic
+	
+	To remove partial dependencies:
+		we need to decompose the relation into a new relation with attributes which are in partial dependency
+		the non prime attribute will be removed from the original relation and be added to new relation with the prime attribute
+		
+		ex:
+			R(A, B, C, D)
+			partial dpendency : B->D
+			new tables R1(A, B, c) and R2(B, D)
+
+3NF:
+	a relation R is said to be in 3NF if it is already in 2NF and there is no non-prime attribute in R which is transitively dependent on key of R
+	
+	To remove transitive dependencies:
+		we will again do decomposition
+		for ex:
+			R(A, B, C, D)
+			transitive dependencies: AB -> C, C -> D
+			after decomposition:
+			R1(A, B, C) R2(C, D)
+
+BCNF (Boyce Codd Normal Form):
+	A relation R is said to be in BCNF if it is already in 3NF and for every functional dependency A -> B, A should be a super key in R
+	
+	if there is a FD where A is not a primary key, then we have to decompose that FD into new relation
