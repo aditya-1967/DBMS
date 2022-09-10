@@ -21,8 +21,8 @@ Process of Normalisation:
 	
 	unnormalised relation
 			  | (remove repeating groups)/(multivalued attributes)
-	          |
-	         1NF
+	          	  |
+	         	 1NF
 			  | (remove partial dependencies)
 			  |
 			 2NF
