@@ -1,0 +1,112 @@
+SQL where command:
+	used with select, update, delete, insert commands
+	used to filter specific rows from table
+	
+	syntax:
+		select * from table_name where column_name = 'value'
+		# value in single quote if object, if numeric then not in single quote
+		
+		# sequence is very important while running the query
+		ex: select city from customers where country = 'Germany'
+			sequence:
+				from -> where -> select
+		
+		# can we only use = with where?
+			no
+			operators with where:
+				1. Relational
+					a. equal =
+					b. not equal <>
+					c. less than or equal to <=
+					d. greater than >
+					e. less than <
+					f. greater than or equal to >=
+				
+				2. Logical
+					a. AND
+					b. OR
+					c. NOT
+					
+					# and/or is used for having multiple condition in where clause
+				
+				3. Between
+					used to filer records in a specific range
+					between lower bound and upper bound
+
+Limit:
+	used to limit number of fetched records from a huge databse table
+	syntax:
+	- select * from table_name limit number_of_rows
+	- select * from table_name where (condition) limit number_of_rows
+	
+	- 4 records after leaving first 5 records
+	select * from table_name limit 5, 4
+
+Null Values:
+	representation of missing value/ no value
+	
+	select column_name from table_name where column_name is NULL
+	
+	# primary key should always be distinct and not null
+	
+Aggregate Functions:
+	performs a calculation on multiple values and return single value
+	
+	1. min:
+		used with select
+		select min(column_name) from table_name
+	2. max:
+		used with select
+		select max(column_name) from table_name
+	3. sum:
+		used with select
+		select sum(column_name) from table_name
+		
+	# all three above return single value
+	
+	4. count:
+		select count(column_name) from table_name
+		given number of records/rows
+	
+	5. avg:
+		select avg(column_name) from table_name
+		given average of records/rows
+	
+	# These aggregate functions ignores null values
+	
+IN Operator:
+	the IN operator allows you to specify multiple values in a where clause
+	it is a shorthand for multiple OR conditions
+	
+	ex:
+		find all such customers which are either from Germany, UK or France
+		select * from customers where country = 'Germany' or country = 'UK' or country = 'France'
+		
+		select * from customers where country IN(Germany, UK, France)
+	
+	IN operator is used with subqueries
+	
+Alias:
+	used to give temporary name to table or a cloumn in a table
+	used to make table names or cloumn names more readable
+	only exists for the duration of the query
+	created with the keyword: AS
+	
+	ex:
+		select * from customers AS cust
+		select * from table_name AS temp_name
+		
+		select * from table_name.column_name
+		(when using 2 tables)
+		
+		select cust.customer_name from customers AS cust
+		
+		select customer_name AS name from customers
+		
+	# double quotations marks or square brackets if the alias name contains spaces
+		select customer_name AS [Customer Name] from customers
+	
+	# if query is big then:
+		select customer_name AS name, contact_name AS contact
+		from customers
+		where country IN(Germany, UK, France)
