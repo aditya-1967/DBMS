@@ -1,0 +1,46 @@
+SQL Basics:
+	SQL - Structured Query Language
+	Domain specific language used in programming and designed for managing data held in a RDBMS
+	
+	Operations performed using SQL:
+		- inserting data
+		- retrieving data
+		- updating data
+		- deleting data
+		- and many more
+		
+	SQL Datatypes:
+		1. string:
+			a. char(size): a fixed length string(can contain letters, numbers and other special char) size(0-255)
+			b. varchar(size): a variable length string(can contain letters, numbers and other special char) size(0-65535)
+		
+		2. numeric:
+			a. bit(size): bit-value type size(1-64)
+			b. bool: true(!= 0), false(0)
+			c. boolen: bool
+			d. int(size): a medium integer, signed range (-2147483648 to 2147483648), unsigned(0 to 4294967295)
+			e. integer: int
+			f. bigint(size): big integer
+			g. float(size, d): d means number of digit after decimal
+			h. float(p): if p in (0 to 24), then float and if p in (25 to 53), then double
+			i. double(size, d): double size floating point
+			j. decimal(size, d): exact fixed point number
+			k. dec(size, d): decimal
+		
+	# SQL is not case sensitive
+	# semi colons is not always mandatory, but while running more than one SQL statements it is mandatory
+	
+	Select Command:
+		used to retrieve data from one or more tables
+		Syntax:
+			select column_name from table_name
+		
+		- to select all columns
+			select * from table_name
+		- to select few columns
+			select column_name1, column_name2 from table_name
+		
+		Select command with distinct:
+			-gives all unique values
+			-need to be used with select command
+			select distinct column_name from table_name
