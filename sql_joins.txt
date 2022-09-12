@@ -1,0 +1,66 @@
+# SQL Joins:
+	needed to retrieve records more than one table collectively
+	
+	Types:
+		1. Full Join (full oyer join)
+		2. Inner Join (equal or simple join)
+		3. Left Join (left outer join)
+		4. Right Join (right outer join)
+		5. Self Join
+		
+		# 2, 3, r are called natural joins
+		
+	# Requirment for Join:
+		2 tables must have one commom column
+	
+	# Inner join:
+		- tight join
+		- only those data from common column from both the tables will be selected
+		
+		Syntax:
+			select * from table1 inner join table2 on table1.column = table2.column
+			
+			without using inner join
+			select * from table1, table2 where table1.column = table2.column
+		
+		- works line intersection
+		# default inner join
+		
+	# Left join:
+		- all data from left table
+		- table1 left join table2:
+			then all records from table1 and only matching records of table2 else filled with NULL
+			
+		Syntax:
+			select * from table1 left join table2 on table1.column = table2.column
+			
+	# Right join:
+		- all data from right table
+		- table1 right join table2:
+			then all records from table2 and only matching records of table1 else filled with NULL
+			
+		Syntax:
+			select * from table1 right join table2 on table1.column = table2.column
+	
+	# Full join:
+		- all records from both the tables
+		- non matched values will be returned as NULL
+		
+		Syntax:
+			select * from table1 full join table2 on table1.column = table2.column
+	
+	# Self join:
+		- only one table involved in join
+		
+		Syntax:
+			select * from table1 as t1, table2 as t2 where t1.column = t2.column
+		
+		
+Cartesian Product:
+	super set of all possible records
+	no any commom column is needed between the tables (means condition of no commom column is needed)
+	 Syntax:
+		select * from table1, table2
+	
+	no of  cols = c1 + c2
+	no. of rows = r1 * r2
