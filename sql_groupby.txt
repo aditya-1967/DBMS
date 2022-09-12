@@ -1,0 +1,69 @@
+SQL Group by, Having, Set Operators:
+	
+	Group By:
+		used in collaboration with the select statement to arrange identicle data into groups
+		
+		Syntax:
+			select * from table_name group by column_name
+			
+		# where cannot be used after using group by
+	
+	Having:
+		used if we need to filter the result set based on aggregate functions such as min(), max(), sum(), avg() and count()
+		was introduced because where clause does not support aggregate functions.
+		also group by must be used before having clause
+		
+		ex:
+			select sum(price), c_id from products group by c_id having sum(price) > 200
+	
+	# where is used before group by
+		ex:
+			select sum(price), c_id, s_id
+			from products
+			where s_id > 2
+			group by c_id
+			having c_id > 2
+	
+	# order of execution
+		where -> group by -> having
+	
+	Where vs Having:
+		Having:
+			checks the condition on a group of rows
+			used with aggregate functions
+			executed after group by 
+		Where:
+			checks the condition on each individual row
+			cannot be used with aggregate functions
+			executed before group by
+	
+	Set Operators:
+		used to combine results from two or more select statements
+		# no. of cols from both the select statements must be same
+		
+		Syntax:
+			(select * from table_name1) set_operator (select * from table_name2)
+		
+		1. Union
+		2. Union All
+		3. Intersect
+		4. Minus or Excpet (set differnce)
+		
+		# join combines two tables, but set combines two select statements
+		
+		- Union:
+			(select * from table_name1) union (select * from table_name2)
+			duplicates are eliminated
+		
+		- Union All
+			(select * from table_name1) union all (select * from table_name2)
+			duplicates are not eliminated
+		
+		- Intersect
+			(select * from table_name1) intersect (select * from table_name2)
+			selects only common rows from both the select statements
+		
+		- Minus/Excpet
+			(select * from table_name1) minus (select * from table_name2)
+			it selects only those rows which are unique in first select statement
+			A - (A intersect B)
