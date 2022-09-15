@@ -1,0 +1,147 @@
+SQL Order By:
+	- the order by clause is used to sort the result-set in ascending or descending order
+	ex:
+	select * from customers order by Country asc
+	
+	Syntax:
+	select * from table_name order by column_name acs/desc
+	
+	# by default sorting is done in ascending order
+	# order by is executed in the last
+	# we can apply order by in more than one column
+	
+	ex:
+		select * from customers order by Country, City asc
+		# first column_name is primary, next is secondary
+		select * from customers order by Country desc, City asc
+
+Subquery:
+	a subquery or inner query or a nested query is a query within another SQL query and embedded within the where clause
+	Synatx:
+		outer_query where (subquery)
+		
+	Types:
+		1. Single Row Subquery
+			returns one row
+			ex:
+				1.Find all customers who are from same city as the city of customer "Consolidated Holdings"
+				
+				select * from customers
+				where city = (select city from customers where costomer_name = "Consolidated Holdings")
+				
+				2.select * from products
+				where price < (select price from products where product_name = 'Ikura') 
+				
+				3. Find the product with second max price
+				select max(price) from products where price < (select max(price) from product)
+				
+		2. Multiple Row Subquery
+			returns multpile rows
+			can't use where
+			cant use logical operators
+			
+			Operators in Multiple Row Subquery:
+				1. In:
+					specifies multpile values in where clause
+					shothand for OR
+					
+					ex:
+						select * from customers where country not IN("Germany", "USA", "UK")
+					
+					Syntax:
+					select column_name from table_name where column_name IN(subquery)
+					
+					ex. 
+					1. Find all customers, that are from the same countries as the suppliers
+						select * from customers where country IN(select country from suppliers)
+					
+					2. Find all customers who have placed more than 2 orders
+						select * from customers where costomer_id IN(select customer_id from orders group by customer_id having count(customer_id) > 2)
+					
+				# Subqueries is more readbale and understandable than joins
+				# Subqueries are preferred when it returns lesser records
+				# Better performance
+				# joins may have redundant data
+				# otherwise Joins are preferred
+				
+				2. Any:
+					allows us to use different logical operators
+					Syantax:
+					select column_name from table_name
+					where column_name operator ANY
+					(select column_name from table_name
+					where condition)
+					
+					-operator(=, <>, !=, >, >=, < or <=)
+					
+					# = ANY() is same as IN()
+					# compared using OR
+					
+					ex:
+						1.Find the productName of all those products which have their orders quantity larger than 50
+							select product_name from products where produc_id =
+							ANY(select product_id from from order_details where quantity > 50)
+						
+						2. Find the productName of all those products which have their produc_id less than any of the products having orders Quantity equal to 1
+							select product_name from products where product_id < ANY(select produc_id from order_detals where quantity = 1)
+					
+				3. All:
+					# compared using AND 
+					Syntax:
+						select column_name from table_name
+					where column_name operator ALL
+					(select column_name from table_name
+					where condition)
+					
+					ex:
+						1.Find the productName of all those products which have their orders quantity larger than 50
+							select product_name from product where produc_id = ANY(
+							select product_id from order details where quantity > 50)
+						
+						2. Find the product name of all those products which have their productsID less than any of the product having orders quantity equal to 1
+							select product_name from products where product_id < ANY(select produc_id from order_details where quantity = 1)
+						
+						3. Select all products which have produc_id less than all of the ID which have order quantity 1
+							select * from product where product_id 
+							< ALL(select produc_id from order_details where quantity = 1)
+						
+				= ALL ():
+					= R1 and = R2 and ....
+				> ALL ():
+					> max value from inner query
+				< ALL ():
+					< min value from inner query
+				>= ALL ():
+					>= max value from inner query
+				<= ALL ():
+					<= min value from inner query
+					
+				= ANY ():
+					IN ()
+				> ANY ():
+					> min value from inner query
+				< ANY ():
+					< max value from inner query
+				>= ANY ():
+					>= min value from inner query
+				<= ANY ():
+					<= max value from inner query
+	
+				4. Exists:
+					used to test for the existence of any record in a subquery
+					returns True if the subquery returns one or more records
+					
+					outer_query where EXISTS (subquery)
+					
+					if subquery return one or many records, it works
+					
+					select column_name from table_name
+					where exists
+					(select column_name from table_name where condition)
+					
+					ex:
+						select * from customer where exists 
+						(select * from customer where customer_id = 1)
+				
+				5. Not Exists:
+					works exactly opposite to exists
